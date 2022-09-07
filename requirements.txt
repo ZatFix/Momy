@@ -1,3 +1,2 @@
-telebot
-datetime
 pytelegrambotapi
+datetime
