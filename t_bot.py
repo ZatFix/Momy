@@ -5,7 +5,7 @@ from pyowm.utils.config import get_default_config
 
 owm =   OWM('23232775d430e5fe2ac9a9c2cbdb8410')
 language = get_default_config()
-language['language'] = 'ru'
+language['language'] = 'en'
 
 bot = telebot.TeleBot('5564840509:AAEr9ZxfMHmN-WDsepBGJGaQ0T7UPDN6Lrg')
 keybord1 = telebot.types.ReplyKeyboardMarkup(True)
@@ -43,9 +43,9 @@ def send_text(messege):
         c = weather.temperature('celsius').get('temp')
         v = weather.temperature('celsius').get('temp_max')
         b = weather.temperature('celsius').get('temp_min')
-        n = weather.rain
+        n = weather.rain.get('1h', 0)
         m = weather.wind()
-        bot.send_message(messege.chat.id, f"Сейчас {z}\nОблачность составляет {x}%\nТемпература: {c}\nМаксимальная температура: {v}\nМинимальная температура: {b}\nКоличество осадков: {n}\nВетер: {m}")
+        bot.send_message(messege.chat.id, f"Now {z}\nClouds: {x}%\nTemperature: {c}\nMax temperature: {v}\nMin temperature: {b}\nPrecipitation: {n}mm\nWind: {m}")
         a = False
 
 
